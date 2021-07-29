@@ -21,8 +21,9 @@ pipeline {
     stage('Deploy') {
       steps {
         sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -rf /var/www/'
+        sh 'sudo ssh ubuntu@34.200.240.146 sudo pkill node'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo mkdir -p /var/www/ismaeeltest'
-        sh 'scp /home/ismaeel/ismaee.txt ssh ubuntu@34.200.240.146:/var/www/ismaeeltest'
+        sh 'sudo scp smaee.txt ssh ubuntu@34.200.240.146:/var/www/ismaeeltest'
       }
     } 
     
