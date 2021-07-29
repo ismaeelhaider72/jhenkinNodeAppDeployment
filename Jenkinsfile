@@ -20,7 +20,7 @@ pipeline {
     
     stage('Deploy') {
       steps {
-        sh 'sudo mkdir ismaeelhadierdir'
+        sh 'mkdir ismaeelhadierdir'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -rf /var/www/'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo mkdir -p /var/www/temp_deploy'
       }
