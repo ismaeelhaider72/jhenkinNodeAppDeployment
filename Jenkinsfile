@@ -20,8 +20,8 @@ pipeline {
     
     stage('Deploy') {
       steps {
-        sh 'ssh ubuntu@34.200.240.146 rm -rf /var/www/'
-        sh 'ssh ubuntu@34.200.240.146 mkdir -p /var/www/temp_deploy'
+        sh 'ssh root@34.200.240.146 rm -rf /var/www/'
+        sh 'ssh root@34.200.240.146 mkdir -p /var/www/temp_deploy'
       }
     } 
     
