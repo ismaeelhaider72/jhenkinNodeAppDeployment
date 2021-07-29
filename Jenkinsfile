@@ -22,7 +22,7 @@ pipeline {
       steps {
         sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -rf /var/www/'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo mkdir -p /var/www/ismaeeltest'
-        sh 'sudo scp -r Node.tar.gz ssh ubuntu@34.200.240.146:/var/www/ismaeeltest/'
+        sh 'sudo scp -r ssh ubuntu@34.200.240.146:/var/www/ismaeeltest'
       }
     } 
     
