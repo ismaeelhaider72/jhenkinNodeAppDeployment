@@ -23,7 +23,14 @@ pipeline {
         sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -rf /var/www/'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo mkdir -p /var/www'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo chmod -R 777 /var/www/'
-        sh 'sudo scp -r /home/ismaeel/project/*  ubuntu@34.200.240.146:/var/www'
+        sh 'sudo ssh ubuntu@34.200.240.146 sudo git clone https://github.com/ismaeelhaider72/jhenkinNodeAppDeployment.git'
+        sh 'sudo ssh ubuntu@34.200.240.146 sudo cp /home/ubuntu/var/www/jhenkinNodeAppDeployment/* .'
+        sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -r /home/ubuntu/var/www/jhenkinNodeAppDeployment'
+        sh 'sudo ssh ubuntu@34.200.240.146 sudo npm install express'
+        sh 'sudo ssh ubuntu@34.200.240.146 sudo node /home/ubuntu/var/www/index.js' 
+        
+        
+        
 
         
       }
