@@ -20,15 +20,14 @@ pipeline {
     
     stage('Deploy') {
       steps {
-        sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -rf /var/www/'
-        sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -rf /home/ubuntu/jhenkinNodeAppDeployment'
-        sh 'sudo ssh ubuntu@34.200.240.146 sudo mkdir -p /var/www'
-        sh 'sudo ssh ubuntu@34.200.240.146 sudo chmod -R 777 /var/www/'
-        sh 'sudo ssh ubuntu@34.200.240.146 sudo git clone https://github.com/ismaeelhaider72/jhenkinNodeAppDeployment.git'
-        sh 'sudo ssh ubuntu@34.200.240.146 sudo cp jhenkinNodeAppDeployment/* /var/www/'
-        sh 'sudo ssh ubuntu@34.200.240.146 cd /var/www/ && sudo npm install express'
-        sh 'sudo ssh ubuntu@34.200.240.146 cd /var/www/ && node index.js' 
-        
+        sshPublisher(publishers: [sshPublisherDesc(configName: 'ismaeelTesting', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''sudo rm -r /var/www/
+        sudo pkill node
+        tar -xf  /home/ubuntu/test/Node.tar.gz
+        sudo cp  -r . /var/www
+        sudo apt-get update -y
+        sudo apt install npm -y
+        node index.js > app.out.log 2> app.err.log < /dev/null & ''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/test/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.gz ')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+
         
         
 
