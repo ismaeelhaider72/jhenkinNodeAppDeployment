@@ -23,7 +23,7 @@ pipeline {
         sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -rf /var/www/'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo mkdir -p /var/www'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo chmod -R 777 /var/www/'
-        sh 'sudo scp https://github.com/ismaeelhaider72/jhenkinNodeAppDeployment.git ubuntu@34.200.240.146:/var/www'
+        sh 'sudo git scp https://github.com/ismaeelhaider72/jhenkinNodeAppDeployment.git ubuntu@34.200.240.146:/var/www'
       }
     } 
     
