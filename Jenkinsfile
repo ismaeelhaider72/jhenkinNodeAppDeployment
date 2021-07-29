@@ -14,7 +14,7 @@ pipeline {
     
     stage('Code') {
       steps {
-        sh 'echo “Run some lints”’
+        sh 'echo “Run some lints”'
       }
     }    
     
