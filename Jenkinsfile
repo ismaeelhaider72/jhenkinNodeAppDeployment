@@ -17,14 +17,7 @@ pipeline {
         sh 'echo “Run some lints”'
       }
     }    
-    
-    stage('Build') {
-      steps {
-        sh 'npm run build'
-      }
-    }    
-    
-    
+        
     
     stage('Deploy') {
       steps {
