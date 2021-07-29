@@ -19,10 +19,13 @@ pipeline {
     }  
     
             
-    stage('Test') {
-      steps {
-        sh 'node index.js'
-      }
+    stage (‘Deploy’) {
+
+    sh ‘ssh ubuntu@34.200.240.146 rm -rf /var/www/'
+
+    sh ‘ssh ubuntu@34.200.240.146 mkdir -p /var/www/temp_deploy’
+
+
     }
   }
 }
