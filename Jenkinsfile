@@ -22,7 +22,7 @@ pipeline {
       steps {
         sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -rf /var/www/'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo mkdir -p /var/www/ismaeeltest'
-        sh 'sudo ssh ubuntu@34.200.240.146 sudo chmod -R 777 /var/www'/
+        sh 'sudo ssh ubuntu@34.200.240.146 sudo chmod -R 777 /var/www/
         sh 'scp ismaee.txt ssh ubuntu@34.200.240.146:/var/www/ismaeeltest'
       }
     } 
