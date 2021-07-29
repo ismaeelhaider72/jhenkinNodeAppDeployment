@@ -21,7 +21,7 @@ pipeline {
             
     stage('Test') {
       steps {
-        sh 'node index.js > app.out.log 2> app.err.log < /dev/null &'
+        sh 'node index.js < /dev/null &'
       }
     }
   }
