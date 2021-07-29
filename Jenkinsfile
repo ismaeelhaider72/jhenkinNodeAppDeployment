@@ -7,24 +7,23 @@ pipeline {
         
     stage('Git') {
       steps {
-        git  'https://github.com/ismaeelhaider72/jhenkinNodeAppDeployment.git'
-        sh 'npm install'
+        git 'https://github.com/ismaeelhaider72/jhenkinNodeAppDeployment.git'
       }
     }
-    
-    stage('Code') {
+     
+    stage('Build') {
       steps {
-        sh 'echo “Run some lints”'
+        sh 'npm install'
+         sh 'tar czf Node.tar.gz node_modules index.js package.json'
       }
-    }    
-        
+    }  
     
     stage('Deploy') {
       steps {
         sh 'sudo ssh ubuntu@34.200.240.146 sudo rm -rf /var/www/'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo mkdir -p /var/www'
         sh 'sudo ssh ubuntu@34.200.240.146 sudo chmod -R 777 /var/www/'
-        sh 'sudo scp dist ubuntu@34.200.240.146:/var/www'
+        sh 'sudo scp https://github.com/ismaeelhaider72/jhenkinNodeAppDeployment.git ubuntu@34.200.240.146:/var/www'
       }
     } 
     
