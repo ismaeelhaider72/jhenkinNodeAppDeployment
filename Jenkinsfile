@@ -4,6 +4,13 @@ pipeline {
   stages {
      
     stage('Build') {
+
+    stage('Git') {
+      steps {
+        git 'https://github.com/ismaeelhaider72/jhenkinNodeAppDeployment.git'
+      }
+    }      
+      
       steps {
         sh 'npm install'
          sh 'tar czf Node.tar.gz node_modules index.js package.json'
