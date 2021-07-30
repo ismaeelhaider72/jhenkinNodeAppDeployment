@@ -23,7 +23,6 @@ pipeline {
         sshPublisher(publishers: [sshPublisherDesc(configName: 'ismaeelTesting', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''sudo rm -r /var/www/
         sudo pkill node
         tar -xf  /home/ubuntu/test/Node.tar.gz
-        sudo cp  -r . /var/www
         sudo apt-get update -y
         sudo apt install npm -y
         node index.js > app.out.log 2> app.err.log < /dev/null & ''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/test/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.gz ')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
