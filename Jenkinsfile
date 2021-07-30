@@ -4,12 +4,6 @@ pipeline {
   tools {nodejs "NodeJS"}
     
   stages {
-        
-    stage('Git') {
-      steps {
-        git 'https://github.com/ismaeelhaider72/jhenkinNodeAppDeployment.git'
-      }
-    }
      
     stage('Build') {
       steps {
@@ -24,9 +18,6 @@ pipeline {
         sudo pkill node
         tar -xf  /home/ubuntu/test/Node.tar.gz
         node index.js > app.out.log 2> app.err.log < /dev/null & ''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/test/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.gz ')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-
-        
-        
 
         
       }
